@@ -1,13 +1,14 @@
 import './App.css';
 import TodoList from "./components/todoList/todoList";
 import {connect} from "react-redux";
-import {onAddNewTodo, onChangeDone} from "./Redux/todoListReducer";
+import {onAddNewTodo, onChangeDone, onDelTodo} from "./Redux/todoListReducer";
 
 function App(props) {
     return (
         <div className="App">
             <TodoList todoData={props.todoData} onAddNewTodo={props.onAddNewTodo}
-                      onChangeDone={props.onChangeDone}/>
+                      onChangeDone={props.onChangeDone}
+                      onDelTodo={props.onDelTodo}/>
         </div>
     );
 }
@@ -25,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onChangeDone: (id) => {
             dispatch(onChangeDone(id));
+        },
+        onDelTodo: (id) => {
+            dispatch(onDelTodo(id))
         }
     }
 }

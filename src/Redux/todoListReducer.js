@@ -1,5 +1,6 @@
 const ADD_TODO = 'ADD_TODO'
 const CHANGE_DONE = 'CHANGE_DONE'
+const DELETE_TODO = 'DELETE_TODO'
 
 const initialState = {
     todoData: [
@@ -17,7 +18,8 @@ const handlers = {
             return el.id === id ? {...el, isDone: !el.isDone} : el;
         })
     }),
-
+    [DELETE_TODO]: (state, {id}) =>
+        ({...state, todoData: state.todoData.filter( el => el.id != id )}),
     DEFAULT: state => state
 }
 
@@ -28,5 +30,6 @@ export const todoListReducer = (state = initialState, action) => {
 
 export const onAddNewTodo = (todoName) => ({type: ADD_TODO, todoName: todoName});
 export const onChangeDone = (id) => ({type: CHANGE_DONE, id});
+export const onDelTodo = (id) => ({type: DELETE_TODO, id});
 
 

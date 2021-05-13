@@ -7,8 +7,8 @@ const TodoListMain = (props) => {
 
     return <div>
         <TodoListHeader onAddNewTodo={props.onAddNewTodo}/>
-        <TodoListBody todoData={props.todoData} onChangeDone={props.onChangeDone}/>
+        <TodoListBody todoData={props.todoData} onChangeDone={props.onChangeDone}  onDelTodo={props.onDelTodo} />
     </div>
 }
 
-export default TodoListMain;
+export default TodoListMain;    

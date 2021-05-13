@@ -10,6 +10,7 @@ const TodoListBody = (props) => {
                           onChangeDone={props.onChangeDone}
                           id={el.id}
                           isDone={el.isDone}
+                          onDelTodo={props.onDelTodo}
             />
         )}
     </div>

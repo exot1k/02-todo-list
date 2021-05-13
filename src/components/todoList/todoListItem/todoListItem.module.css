@@ -1,8 +1,21 @@
 .changeCross {
     cursor: pointer;
+    margin: 5px;
 }
 
 .crossedOut {
     text-decoration: line-through
+}
 
+.check {
+    height: 12px;
+}
+
+.delButton {
+    width: 24px;
+    margin-left: 5px;
+    height: 24px;
+    cursor: pointer;
+    border: 1px solid #e62f57;
+    border-radius: 50%;
 }
