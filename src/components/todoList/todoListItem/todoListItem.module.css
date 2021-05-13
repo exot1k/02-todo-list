@@ -1,0 +1,8 @@
+.changeCross {
+    cursor: pointer;
+}
+
+.crossedOut {
+    text-decoration: line-through
+
+}

@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import TodoList from "./components/todoList/todoList";
+import {connect} from "react-redux";
+import {onAddNewTodo, onChangeDone} from "./Redux/todoListReducer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+    return (
+        <div className="App">
+            <TodoList todoData={props.todoData} onAddNewTodo={props.onAddNewTodo}
+                      onChangeDone={props.onChangeDone}/>
+        </div>
+    );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+    return {
+        todoData: state.todoList.todoData
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAddNewTodo: (todoName) => {
+            dispatch(onAddNewTodo(todoName));
+        },
+        onChangeDone: (id) => {
+            dispatch(onChangeDone(id));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
